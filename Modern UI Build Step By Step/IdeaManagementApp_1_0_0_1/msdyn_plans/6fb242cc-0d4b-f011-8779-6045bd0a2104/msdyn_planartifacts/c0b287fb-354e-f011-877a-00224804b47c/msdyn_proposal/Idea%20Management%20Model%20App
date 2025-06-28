@@ -1,0 +1,67 @@
+{
+  "name": "Idea Management Model App",
+  "description": "A model-driven app to manage all idea-related tables, providing structured workflows for employees and administrators.",
+  "typesOfUsers": [
+    "Employee",
+    "Administrator"
+  ],
+  "tableSchemaNames": [
+    "cr6c2_Idea",
+    "cr6c2_Category",
+    "cr6c2_Comment",
+    "cr6c2_Vote"
+  ],
+  "userStories": [
+    {
+      "id": "us01",
+      "description": "Submit a new idea so that it can be considered for implementation.",
+      "userType": "Employee"
+    },
+    {
+      "id": "us02",
+      "description": "View the status of my submitted ideas so that I know their progress.",
+      "userType": "Employee"
+    },
+    {
+      "id": "us03",
+      "description": "Edit my submitted ideas so that I can update them with new information.",
+      "userType": "Employee"
+    },
+    {
+      "id": "us04",
+      "description": "Delete my submitted ideas so that I can remove irrelevant or outdated ideas.",
+      "userType": "Employee"
+    },
+    {
+      "id": "us05",
+      "description": "Search for ideas by title, date, author, or category so that I can find specific ideas.",
+      "userType": "Employee"
+    },
+    {
+      "id": "us06",
+      "description": "Filter ideas by category so that I can view ideas relevant to my interests.",
+      "userType": "Employee"
+    },
+    {
+      "id": "us07",
+      "description": "Like or vote for ideas so that I can support good ideas.",
+      "userType": "Employee"
+    },
+    {
+      "id": "us08",
+      "description": "Comment on ideas so that I can provide feedback or suggestions.",
+      "userType": "Employee"
+    },
+    {
+      "id": "us17",
+      "description": "View and edit all ideas",
+      "userType": "Administrator"
+    },
+    {
+      "id": "us18",
+      "description": "Change status of idea",
+      "userType": "Administrator"
+    }
+  ],
+  "version": 1
+}

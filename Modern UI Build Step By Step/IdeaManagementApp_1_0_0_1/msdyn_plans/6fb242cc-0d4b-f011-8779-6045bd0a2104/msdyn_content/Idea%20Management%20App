@@ -1,0 +1,2004 @@
+{
+  "personasAndUserStories": [
+    {
+      "user": {
+        "id": "Employee",
+        "name": "Employee",
+        "description": "Employee who submits and manages ideas",
+        "image": "https://content.powerapps.com/resource/makerx/static/media/PersonNote.bac78e19.svg"
+      },
+      "userStories": [
+        {
+          "id": "us01",
+          "description": "Submit a new idea so that it can be considered for implementation.",
+          "userType": "Employee"
+        },
+        {
+          "id": "us02",
+          "description": "View the status of my submitted ideas so that I know their progress.",
+          "userType": "Employee"
+        },
+        {
+          "id": "us03",
+          "description": "Edit my submitted ideas so that I can update them with new information.",
+          "userType": "Employee"
+        },
+        {
+          "id": "us04",
+          "description": "Delete my submitted ideas so that I can remove irrelevant or outdated ideas.",
+          "userType": "Employee"
+        },
+        {
+          "id": "us05",
+          "description": "Search for ideas by title, date, author, or category so that I can find specific ideas.",
+          "userType": "Employee"
+        },
+        {
+          "id": "us06",
+          "description": "Filter ideas by category so that I can view ideas relevant to my interests.",
+          "userType": "Employee"
+        },
+        {
+          "id": "us07",
+          "description": "Like or vote for ideas so that I can support good ideas.",
+          "userType": "Employee"
+        },
+        {
+          "id": "us08",
+          "description": "Comment on ideas so that I can provide feedback or suggestions.",
+          "userType": "Employee"
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "Administrator",
+        "name": "Administrator",
+        "description": "Person responsible for overseeing the idea management process",
+        "image": "https://content.powerapps.com/resource/makerx/static/media/PersonStar.d9309781.svg"
+      },
+      "userStories": [
+        {
+          "id": "us17",
+          "description": "View and edit all ideas",
+          "userType": "Administrator"
+        },
+        {
+          "id": "us18",
+          "description": "Change status of idea",
+          "userType": "Administrator"
+        }
+      ]
+    }
+  ],
+  "entitiesAndRelationships": {
+    "entities": [
+      {
+        "entityMetadataId": "7951bfb6-b474-4492-a664-bcfe8481a98e",
+        "entityName": "Idea",
+        "description": "This table contains records of submitted ideas.",
+        "columns": [
+          "Idea Title",
+          "Description",
+          "Submission Date",
+          "Category"
+        ],
+        "userStories": [
+          "us01",
+          "us02",
+          "us03",
+          "us04",
+          "us05",
+          "us06",
+          "us07",
+          "us08"
+        ],
+        "userConfirmed": false,
+        "generated": true
+      },
+      {
+        "entityMetadataId": "ba2be702-183c-4f8b-b678-a1c3d99f303c",
+        "entityName": "Category",
+        "description": "This table contains records of idea categories.",
+        "columns": [
+          "Category Name"
+        ],
+        "userStories": [
+          "us06",
+          "us05",
+          "us06"
+        ],
+        "userConfirmed": false,
+        "generated": true
+      },
+      {
+        "entityMetadataId": "23fec3e1-47c6-44ce-8bd1-9f28968935ac",
+        "entityName": "Comment",
+        "description": "This table contains records of comments on ideas.",
+        "columns": [
+          "Comment Name",
+          "Comment Text",
+          "Idea Title",
+          "Comment Date"
+        ],
+        "userStories": [
+          "us08",
+          "us08"
+        ],
+        "userConfirmed": false,
+        "generated": true
+      },
+      {
+        "entityMetadataId": "d89313ac-221a-4075-bc14-ec6fd8af6176",
+        "entityName": "Vote",
+        "description": "This table contains records of votes for ideas.",
+        "columns": [
+          "Vote Name",
+          "Vote Type",
+          "Idea Title"
+        ],
+        "userStories": [
+          "us07",
+          "us07"
+        ],
+        "userConfirmed": false,
+        "generated": true
+      }
+    ],
+    "relationships": []
+  },
+  "entitiesCollection": [
+    {
+      "EntityDefinition": {
+        "MetadataId": "d778c21e-c1b6-ef11-b8e9-6045bd0a2c9c",
+        "Attributes": [
+          {
+            "MetadataId": "179172c8-14bd-4c29-9302-c3ca950309ab",
+            "IsPrimaryName": true,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_IdeaTitle",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Idea Title",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "ApplicationRequired"
+            },
+            "AttributeType": "String",
+            "AttributeTypeName": {
+              "Value": "StringType"
+            },
+            "ImeMode": "Auto",
+            "MaxLength": 850,
+            "FormatName": {
+              "Value": "Text"
+            },
+            "Format": "Text",
+            "AutoNumberFormat": null,
+            "@odata.type": "Microsoft.Dynamics.CRM.StringAttributeMetadata"
+          },
+          {
+            "MetadataId": "e84b75b0-20a8-4b08-8397-156d029affa3",
+            "IsPrimaryName": false,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_Description",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Description",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "None"
+            },
+            "AttributeType": "String",
+            "AttributeTypeName": {
+              "Value": "StringType"
+            },
+            "ImeMode": "Auto",
+            "MaxLength": 100,
+            "FormatName": {
+              "Value": "TextArea"
+            },
+            "Format": "TextArea",
+            "AutoNumberFormat": null,
+            "@odata.type": "Microsoft.Dynamics.CRM.StringAttributeMetadata"
+          },
+          {
+            "MetadataId": "548e333c-9d3a-44de-8953-c1a0518bd106",
+            "IsPrimaryName": false,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_SubmissionDate",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Submission Date",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "None"
+            },
+            "AttributeType": "DateTime",
+            "AttributeTypeName": {
+              "Value": "DateTimeType"
+            },
+            "ImeMode": "Auto",
+            "Format": "DateOnly",
+            "DateTimeBehavior": {
+              "Value": "UserLocal"
+            },
+            "CanChangeDateTimeBehavior": {
+              "Value": true,
+              "CanBeChanged": true,
+              "ManagedPropertyLogicalName": "canmodifybehavior"
+            },
+            "@odata.type": "Microsoft.Dynamics.CRM.DateTimeAttributeMetadata"
+          },
+          {
+            "MetadataId": "bb967e1f-9eb9-4637-8ef4-ed5b81122dbe",
+            "IsPrimaryName": false,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_Category",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Category",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "None"
+            },
+            "AttributeType": "Lookup",
+            "AttributeTypeName": {
+              "Value": "LookupType"
+            },
+            "Targets": [
+              "cr6c2_category"
+            ],
+            "@odata.type": "Microsoft.Dynamics.CRM.LookupAttributeMetadata"
+          }
+        ],
+        "OwnershipType": "UserOwned",
+        "PrimaryNameAttribute": "",
+        "SchemaName": "cr6c2_Idea",
+        "HasNotes": false,
+        "HasActivities": false,
+        "IsAvailableOffline": false,
+        "IsActivity": false,
+        "ActivityTypeMask": 0,
+        "IsSolutionAware": false,
+        "Description": {
+          "LocalizedLabels": [
+            {
+              "Label": "This table contains records of submitted ideas.",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "DisplayCollectionName": {
+          "LocalizedLabels": [
+            {
+              "Label": "Ideas",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "DisplayName": {
+          "LocalizedLabels": [
+            {
+              "Label": "Idea",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "IsAuditEnabled": {
+          "Value": false
+        },
+        "IsValidForQueue": {
+          "Value": false
+        },
+        "IsConnectionsEnabled": {
+          "Value": false
+        },
+        "IsDuplicateDetectionEnabled": {
+          "Value": true
+        },
+        "IsDocumentManagementEnabled": false,
+        "EntityColor": null,
+        "IsRetentionEnabled": false,
+        "SyncToExternalSearchIndex": false,
+        "AutoRouteToOwnerQueue": false,
+        "IsSLAEnabled": false,
+        "IsQuickCreateEnabled": false,
+        "IsActivityParty": false,
+        "HasFeedback": false,
+        "AutoCreateAccessTeams": false,
+        "ChangeTrackingEnabled": false,
+        "IsKnowledgeManagementEnabled": false,
+        "EntityHelpUrlEnabled": false,
+        "EntityHelpUrl": null,
+        "IsMailMergeEnabled": {
+          "Value": true
+        },
+        "IsOfflineInMobileClient": {
+          "Value": false
+        },
+        "ManyToOneRelationships": [
+          {
+            "MetadataId": "62b491d5-4375-4955-843e-a8f08cbceb41",
+            "SchemaName": "cr6c2_Idea_cr6c2_Category_cr6c2_Category",
+            "ReferencingAttribute": "cr6c2_category",
+            "ReferencedEntity": "cr6c2_category",
+            "ReferencingEntity": "cr6c2_idea",
+            "ReferencedAttribute": "cr6c2_categoryid",
+            "ReferencingEntityNavigationPropertyName": "cr6c2_Category",
+            "RelationshipType": "OneToManyRelationship",
+            "IsCustomRelationship": true,
+            "IsValidForAdvancedFind": true,
+            "IsCustomizable": {
+              "Value": true,
+              "CanBeChanged": true,
+              "ManagedPropertyLogicalName": "iscustomizable"
+            },
+            "CascadeConfiguration": {
+              "Assign": "NoCascade",
+              "Delete": "RemoveLink",
+              "Merge": "NoCascade",
+              "Reparent": "NoCascade",
+              "Share": "NoCascade",
+              "Unshare": "NoCascade",
+              "RollupView": "NoCascade",
+              "Archive": "RemoveLink"
+            },
+            "@odata.type": "Microsoft.Dynamics.CRM.OneToManyRelationshipMetadata"
+          }
+        ],
+        "@odata.type": "Microsoft.Dynamics.CRM.EntityMetadata"
+      },
+      "SampleData": []
+    },
+    {
+      "EntityDefinition": {
+        "MetadataId": "e18016fe-bfb6-ef11-b8e9-6045bd0a2c9c",
+        "Attributes": [
+          {
+            "MetadataId": "c8ddea8d-122b-4c6d-b91c-b2b3230f696a",
+            "IsPrimaryName": true,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_CategoryName",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Category Name",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "ApplicationRequired"
+            },
+            "AttributeType": "String",
+            "AttributeTypeName": {
+              "Value": "StringType"
+            },
+            "ImeMode": "Auto",
+            "MaxLength": 850,
+            "FormatName": {
+              "Value": "Text"
+            },
+            "Format": "Text",
+            "AutoNumberFormat": null,
+            "@odata.type": "Microsoft.Dynamics.CRM.StringAttributeMetadata"
+          }
+        ],
+        "OwnershipType": "UserOwned",
+        "PrimaryNameAttribute": "",
+        "SchemaName": "cr6c2_Category",
+        "HasNotes": false,
+        "HasActivities": false,
+        "IsAvailableOffline": false,
+        "IsActivity": false,
+        "ActivityTypeMask": 0,
+        "IsSolutionAware": false,
+        "Description": {
+          "LocalizedLabels": [
+            {
+              "Label": "This table contains records of idea categories.",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "DisplayCollectionName": {
+          "LocalizedLabels": [
+            {
+              "Label": "Categories",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "DisplayName": {
+          "LocalizedLabels": [
+            {
+              "Label": "Category",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "IsAuditEnabled": {
+          "Value": false
+        },
+        "IsValidForQueue": {
+          "Value": false
+        },
+        "IsConnectionsEnabled": {
+          "Value": false
+        },
+        "IsDuplicateDetectionEnabled": {
+          "Value": true
+        },
+        "IsDocumentManagementEnabled": false,
+        "EntityColor": null,
+        "IsRetentionEnabled": false,
+        "SyncToExternalSearchIndex": false,
+        "AutoRouteToOwnerQueue": false,
+        "IsSLAEnabled": false,
+        "IsQuickCreateEnabled": false,
+        "IsActivityParty": false,
+        "HasFeedback": false,
+        "AutoCreateAccessTeams": false,
+        "ChangeTrackingEnabled": false,
+        "IsKnowledgeManagementEnabled": false,
+        "EntityHelpUrlEnabled": false,
+        "EntityHelpUrl": null,
+        "IsMailMergeEnabled": {
+          "Value": true
+        },
+        "IsOfflineInMobileClient": {
+          "Value": false
+        },
+        "ManyToOneRelationships": [],
+        "@odata.type": "Microsoft.Dynamics.CRM.EntityMetadata"
+      },
+      "SampleData": []
+    },
+    {
+      "EntityDefinition": {
+        "MetadataId": "b62454ab-c0b6-ef11-b8e9-6045bd0a2c9c",
+        "Attributes": [
+          {
+            "MetadataId": "e61fa7e6-6a04-4149-b248-367b7e18ec6c",
+            "IsPrimaryName": true,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_CommentName",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Comment Name",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "ApplicationRequired"
+            },
+            "AttributeType": "String",
+            "AttributeTypeName": {
+              "Value": "StringType"
+            },
+            "ImeMode": "Auto",
+            "MaxLength": 850,
+            "FormatName": {
+              "Value": "Text"
+            },
+            "Format": "Text",
+            "AutoNumberFormat": null,
+            "@odata.type": "Microsoft.Dynamics.CRM.StringAttributeMetadata"
+          },
+          {
+            "MetadataId": "063944fe-72e5-4d71-8d66-5fca3e197d55",
+            "IsPrimaryName": false,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_CommentText",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Comment Text",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "ApplicationRequired"
+            },
+            "AttributeType": "String",
+            "AttributeTypeName": {
+              "Value": "StringType"
+            },
+            "ImeMode": "Auto",
+            "MaxLength": 100,
+            "FormatName": {
+              "Value": "TextArea"
+            },
+            "Format": "TextArea",
+            "AutoNumberFormat": null,
+            "@odata.type": "Microsoft.Dynamics.CRM.StringAttributeMetadata"
+          },
+          {
+            "MetadataId": "478c20f3-1d91-47cf-9fb7-518004dd589c",
+            "IsPrimaryName": false,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_IdeaTitle",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Idea Title",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "None"
+            },
+            "AttributeType": "Lookup",
+            "AttributeTypeName": {
+              "Value": "LookupType"
+            },
+            "Targets": [
+              "cr6c2_idea"
+            ],
+            "@odata.type": "Microsoft.Dynamics.CRM.LookupAttributeMetadata"
+          },
+          {
+            "MetadataId": "f48bd12f-ddbf-499a-b3f0-3b6d08d476c7",
+            "IsPrimaryName": false,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_CommentDate",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Comment Date",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "None"
+            },
+            "AttributeType": "DateTime",
+            "AttributeTypeName": {
+              "Value": "DateTimeType"
+            },
+            "ImeMode": "Auto",
+            "Format": "DateOnly",
+            "DateTimeBehavior": {
+              "Value": "UserLocal"
+            },
+            "CanChangeDateTimeBehavior": {
+              "Value": true,
+              "CanBeChanged": true,
+              "ManagedPropertyLogicalName": "canmodifybehavior"
+            },
+            "@odata.type": "Microsoft.Dynamics.CRM.DateTimeAttributeMetadata"
+          }
+        ],
+        "OwnershipType": "UserOwned",
+        "PrimaryNameAttribute": "",
+        "SchemaName": "cr6c2_Comment",
+        "HasNotes": false,
+        "HasActivities": false,
+        "IsAvailableOffline": false,
+        "IsActivity": false,
+        "ActivityTypeMask": 0,
+        "IsSolutionAware": false,
+        "Description": {
+          "LocalizedLabels": [
+            {
+              "Label": "This table contains records of comments on ideas.",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "DisplayCollectionName": {
+          "LocalizedLabels": [
+            {
+              "Label": "Comments",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "DisplayName": {
+          "LocalizedLabels": [
+            {
+              "Label": "Comment",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "IsAuditEnabled": {
+          "Value": false
+        },
+        "IsValidForQueue": {
+          "Value": false
+        },
+        "IsConnectionsEnabled": {
+          "Value": false
+        },
+        "IsDuplicateDetectionEnabled": {
+          "Value": true
+        },
+        "IsDocumentManagementEnabled": false,
+        "EntityColor": null,
+        "IsRetentionEnabled": false,
+        "SyncToExternalSearchIndex": false,
+        "AutoRouteToOwnerQueue": false,
+        "IsSLAEnabled": false,
+        "IsQuickCreateEnabled": false,
+        "IsActivityParty": false,
+        "HasFeedback": false,
+        "AutoCreateAccessTeams": false,
+        "ChangeTrackingEnabled": false,
+        "IsKnowledgeManagementEnabled": false,
+        "EntityHelpUrlEnabled": false,
+        "EntityHelpUrl": null,
+        "IsMailMergeEnabled": {
+          "Value": true
+        },
+        "IsOfflineInMobileClient": {
+          "Value": false
+        },
+        "ManyToOneRelationships": [
+          {
+            "MetadataId": "86a72629-368d-4121-a05d-d945a8fcf1d6",
+            "SchemaName": "cr6c2_Comment_cr6c2_IdeaTitle_cr6c2_Idea",
+            "ReferencingAttribute": "cr6c2_ideatitle",
+            "ReferencedEntity": "cr6c2_idea",
+            "ReferencingEntity": "cr6c2_comment",
+            "ReferencedAttribute": "cr6c2_ideaid",
+            "ReferencingEntityNavigationPropertyName": "cr6c2_IdeaTitle",
+            "RelationshipType": "OneToManyRelationship",
+            "IsCustomRelationship": true,
+            "IsValidForAdvancedFind": true,
+            "IsCustomizable": {
+              "Value": true,
+              "CanBeChanged": true,
+              "ManagedPropertyLogicalName": "iscustomizable"
+            },
+            "CascadeConfiguration": {
+              "Assign": "NoCascade",
+              "Delete": "RemoveLink",
+              "Merge": "NoCascade",
+              "Reparent": "NoCascade",
+              "Share": "NoCascade",
+              "Unshare": "NoCascade",
+              "RollupView": "NoCascade",
+              "Archive": "RemoveLink"
+            },
+            "@odata.type": "Microsoft.Dynamics.CRM.OneToManyRelationshipMetadata"
+          }
+        ],
+        "@odata.type": "Microsoft.Dynamics.CRM.EntityMetadata"
+      },
+      "SampleData": []
+    },
+    {
+      "EntityDefinition": {
+        "MetadataId": "06e6d146-0b45-f011-8779-000d3a3bdf4f",
+        "Attributes": [
+          {
+            "MetadataId": "2fd219c8-f0d3-48e3-a091-c58ac222df1a",
+            "IsPrimaryName": true,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_VoteName",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Vote Name",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "ApplicationRequired"
+            },
+            "AttributeType": "String",
+            "AttributeTypeName": {
+              "Value": "StringType"
+            },
+            "ImeMode": "Auto",
+            "MaxLength": 850,
+            "FormatName": {
+              "Value": "Text"
+            },
+            "Format": "Text",
+            "AutoNumberFormat": null,
+            "@odata.type": "Microsoft.Dynamics.CRM.StringAttributeMetadata"
+          },
+          {
+            "MetadataId": "07452e78-dca9-4570-8967-4ee667f5d5a4",
+            "IsPrimaryName": false,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_VoteType",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Vote Type",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "ApplicationRequired"
+            },
+            "AttributeType": "Boolean",
+            "AttributeTypeName": {
+              "Value": "BooleanType"
+            },
+            "DefaultValue": false,
+            "OptionSet": {
+              "IsCustomOptionSet": true,
+              "IsGlobal": false,
+              "IsCustomizable": {
+                "Value": true,
+                "CanBeChanged": false,
+                "ManagedPropertyLogicalName": "iscustomizable"
+              },
+              "IsManaged": false,
+              "ExternalTypeName": "",
+              "OptionSetType": "Boolean",
+              "Description": {
+                "LocalizedLabels": [
+                  {
+                    "Label": "",
+                    "LanguageCode": 1033
+                  }
+                ]
+              },
+              "DisplayName": {
+                "LocalizedLabels": [
+                  {
+                    "Label": "Vote Type",
+                    "LanguageCode": 1033
+                  }
+                ]
+              },
+              "TrueOption": {
+                "Value": 1,
+                "IsManaged": false,
+                "ExternalValue": "",
+                "Label": {
+                  "LocalizedLabels": [
+                    {
+                      "Label": "Yes",
+                      "LanguageCode": 1033
+                    }
+                  ]
+                },
+                "Description": {
+                  "LocalizedLabels": []
+                }
+              },
+              "FalseOption": {
+                "Value": 0,
+                "IsManaged": false,
+                "ExternalValue": "",
+                "Label": {
+                  "LocalizedLabels": [
+                    {
+                      "Label": "No",
+                      "LanguageCode": 1033
+                    }
+                  ]
+                },
+                "Description": {
+                  "LocalizedLabels": []
+                }
+              }
+            },
+            "@odata.type": "Microsoft.Dynamics.CRM.BooleanAttributeMetadata"
+          },
+          {
+            "MetadataId": "7251aa02-c05d-4f60-8ed6-d7159bc02680",
+            "IsPrimaryName": false,
+            "IsSecured": false,
+            "IsValidForUpdate": true,
+            "IsValidForRead": true,
+            "SchemaName": "cr6c2_IdeaTitle",
+            "SourceType": 0,
+            "ExternalName": null,
+            "Description": {
+              "LocalizedLabels": [
+                {
+                  "Label": "",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "DisplayName": {
+              "LocalizedLabels": [
+                {
+                  "Label": "Idea Title",
+                  "LanguageCode": 1033
+                }
+              ]
+            },
+            "RequiredLevel": {
+              "Value": "None"
+            },
+            "AttributeType": "Lookup",
+            "AttributeTypeName": {
+              "Value": "LookupType"
+            },
+            "Targets": [
+              "cr6c2_idea"
+            ],
+            "@odata.type": "Microsoft.Dynamics.CRM.LookupAttributeMetadata"
+          }
+        ],
+        "OwnershipType": "UserOwned",
+        "PrimaryNameAttribute": "",
+        "SchemaName": "cr6c2_Vote",
+        "HasNotes": false,
+        "HasActivities": false,
+        "IsAvailableOffline": false,
+        "IsActivity": false,
+        "ActivityTypeMask": 0,
+        "IsSolutionAware": false,
+        "Description": {
+          "LocalizedLabels": [
+            {
+              "Label": "This table contains records of votes for ideas.",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "DisplayCollectionName": {
+          "LocalizedLabels": [
+            {
+              "Label": "Votes",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "DisplayName": {
+          "LocalizedLabels": [
+            {
+              "Label": "Vote",
+              "LanguageCode": 1033
+            }
+          ]
+        },
+        "IsAuditEnabled": {
+          "Value": false
+        },
+        "IsValidForQueue": {
+          "Value": false
+        },
+        "IsConnectionsEnabled": {
+          "Value": false
+        },
+        "IsDuplicateDetectionEnabled": {
+          "Value": true
+        },
+        "IsDocumentManagementEnabled": false,
+        "EntityColor": null,
+        "IsRetentionEnabled": false,
+        "SyncToExternalSearchIndex": false,
+        "AutoRouteToOwnerQueue": false,
+        "IsSLAEnabled": false,
+        "IsQuickCreateEnabled": false,
+        "IsActivityParty": false,
+        "HasFeedback": false,
+        "AutoCreateAccessTeams": false,
+        "ChangeTrackingEnabled": false,
+        "IsKnowledgeManagementEnabled": false,
+        "EntityHelpUrlEnabled": false,
+        "EntityHelpUrl": null,
+        "IsMailMergeEnabled": {
+          "Value": true
+        },
+        "IsOfflineInMobileClient": {
+          "Value": false
+        },
+        "ManyToOneRelationships": [
+          {
+            "MetadataId": "37954c9e-1793-4b15-8ac3-10c33bf70554",
+            "SchemaName": "cr6c2_Vote_cr6c2_IdeaTitle_cr6c2_Idea",
+            "ReferencingAttribute": "cr6c2_ideatitle",
+            "ReferencedEntity": "cr6c2_idea",
+            "ReferencingEntity": "cr6c2_vote",
+            "ReferencedAttribute": "cr6c2_ideaid",
+            "ReferencingEntityNavigationPropertyName": "cr6c2_IdeaTitle",
+            "RelationshipType": "OneToManyRelationship",
+            "IsCustomRelationship": true,
+            "IsValidForAdvancedFind": true,
+            "IsCustomizable": {
+              "Value": true,
+              "CanBeChanged": true,
+              "ManagedPropertyLogicalName": "iscustomizable"
+            },
+            "CascadeConfiguration": {
+              "Assign": "NoCascade",
+              "Delete": "RemoveLink",
+              "Merge": "NoCascade",
+              "Reparent": "NoCascade",
+              "Share": "NoCascade",
+              "Unshare": "NoCascade",
+              "RollupView": "NoCascade",
+              "Archive": "RemoveLink"
+            },
+            "@odata.type": "Microsoft.Dynamics.CRM.OneToManyRelationshipMetadata"
+          }
+        ],
+        "@odata.type": "Microsoft.Dynamics.CRM.EntityMetadata"
+      },
+      "SampleData": []
+    }
+  ],
+  "artifactIds": [
+    "c0b287fb-354e-f011-877a-00224804b47c",
+    "7bb242cc-0d4b-f011-8779-6045bd0a2104"
+  ],
+  "solutionUniqueName": "IdeaManagementApp",
+  "planProcessDiagrams": [
+    {
+      "name": "Idea Submission and Management",
+      "description": "This process involves employees submitting, managing, and interacting with ideas, including viewing, editing, deleting, searching, filtering, liking, voting, and commenting on ideas.",
+      "userStoryIds": [
+        "us01",
+        "us02",
+        "us03",
+        "us04",
+        "us05",
+        "us06",
+        "us07",
+        "us08"
+      ],
+      "nodes": [
+        {
+          "id": "step01",
+          "position": {
+            "x": 1612,
+            "y": 8
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Idea Submission Started",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step02",
+          "position": {
+            "x": 1508,
+            "y": 118
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Submit a new idea",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step02",
+          "position": {
+            "x": 1508,
+            "y": 118
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Submit a new idea",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 1612,
+            "y": 298
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Submitted",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 1612,
+            "y": 298
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Submitted",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step04",
+          "position": {
+            "x": 3008,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "View the status of submitted ideas",
+            "userStoryId": "us02",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 1612,
+            "y": 298
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Submitted",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step05",
+          "position": {
+            "x": 2508,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Edit submitted ideas",
+            "userStoryId": "us03",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 1612,
+            "y": 298
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Submitted",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step06",
+          "position": {
+            "x": 2008,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Delete submitted ideas",
+            "userStoryId": "us04",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 1612,
+            "y": 298
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Submitted",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step07",
+          "position": {
+            "x": 1508,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Search for ideas",
+            "userStoryId": "us05",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 1612,
+            "y": 298
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Submitted",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step08",
+          "position": {
+            "x": 1008,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Filter ideas by category",
+            "userStoryId": "us06",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 1612,
+            "y": 298
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Submitted",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step09",
+          "position": {
+            "x": 508,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Like or vote for ideas",
+            "userStoryId": "us07",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 1612,
+            "y": 298
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Submitted",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step10",
+          "position": {
+            "x": 8,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Comment on ideas",
+            "userStoryId": "us08",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step10",
+          "position": {
+            "x": 8,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Comment on ideas",
+            "userStoryId": "us08",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step11",
+          "position": {
+            "x": 1612,
+            "y": 588
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Management Completed",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step09",
+          "position": {
+            "x": 508,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Like or vote for ideas",
+            "userStoryId": "us07",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step11",
+          "position": {
+            "x": 1612,
+            "y": 588
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Management Completed",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step08",
+          "position": {
+            "x": 1008,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Filter ideas by category",
+            "userStoryId": "us06",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step11",
+          "position": {
+            "x": 1612,
+            "y": 588
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Management Completed",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step07",
+          "position": {
+            "x": 1508,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Search for ideas",
+            "userStoryId": "us05",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step11",
+          "position": {
+            "x": 1612,
+            "y": 588
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Management Completed",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step06",
+          "position": {
+            "x": 2008,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Delete submitted ideas",
+            "userStoryId": "us04",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step11",
+          "position": {
+            "x": 1612,
+            "y": 588
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Management Completed",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step05",
+          "position": {
+            "x": 2508,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "Edit submitted ideas",
+            "userStoryId": "us03",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step11",
+          "position": {
+            "x": 1612,
+            "y": 588
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Management Completed",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step04",
+          "position": {
+            "x": 3008,
+            "y": 408
+          },
+          "data": {
+            "actor": "Employee",
+            "actionName": "View the status of submitted ideas",
+            "userStoryId": "us02",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step11",
+          "position": {
+            "x": 1612,
+            "y": 588
+          },
+          "data": {
+            "actor": "System",
+            "actionName": "Idea Management Completed",
+            "userStoryId": "us01",
+            "processName": "Idea Submission and Management"
+          },
+          "type": "event"
+        }
+      ],
+      "edges": [
+        {
+          "id": "step01-step02-0",
+          "sourceNodeId": "step01",
+          "targetNodeId": "step02",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step02-step03-1",
+          "sourceNodeId": "step02",
+          "targetNodeId": "step03",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step03-step04-2",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step04",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step03-step05-3",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step05",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step03-step06-4",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step06",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step03-step07-5",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step07",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step03-step08-6",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step08",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step03-step09-7",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step09",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step03-step10-8",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step10",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step10-step11-9",
+          "sourceNodeId": "step10",
+          "targetNodeId": "step11",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step09-step11-10",
+          "sourceNodeId": "step09",
+          "targetNodeId": "step11",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step08-step11-11",
+          "sourceNodeId": "step08",
+          "targetNodeId": "step11",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step07-step11-12",
+          "sourceNodeId": "step07",
+          "targetNodeId": "step11",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step06-step11-13",
+          "sourceNodeId": "step06",
+          "targetNodeId": "step11",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step05-step11-14",
+          "sourceNodeId": "step05",
+          "targetNodeId": "step11",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        },
+        {
+          "id": "step04-step11-15",
+          "sourceNodeId": "step04",
+          "targetNodeId": "step11",
+          "data": {
+            "label": "",
+            "processName": "Idea Submission and Management"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Idea Oversight and Administration",
+      "description": "This process involves administrators overseeing and managing the idea submission process, including viewing, editing, and changing the status of ideas.",
+      "userStoryIds": [
+        "us17",
+        "us18"
+      ],
+      "nodes": [
+        {
+          "id": "step01",
+          "position": {
+            "x": 112,
+            "y": 8
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Administrator logs into the system",
+            "userStoryId": "us17",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step02",
+          "position": {
+            "x": 8,
+            "y": 118
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Administrator views all ideas",
+            "userStoryId": "us17",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step02",
+          "position": {
+            "x": 8,
+            "y": 118
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Administrator views all ideas",
+            "userStoryId": "us17",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 160,
+            "y": 298
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Does the Administrator need to edit an idea?",
+            "userStoryId": "us17",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "gateway"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 160,
+            "y": 298
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Does the Administrator need to edit an idea?",
+            "userStoryId": "us17",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "gateway"
+        },
+        {
+          "id": "step04",
+          "position": {
+            "x": 258,
+            "y": 488
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Administrator edits the idea",
+            "userStoryId": "us17",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step03",
+          "position": {
+            "x": 160,
+            "y": 298
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Does the Administrator need to edit an idea?",
+            "userStoryId": "us17",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "gateway"
+        },
+        {
+          "id": "step05",
+          "position": {
+            "x": 160,
+            "y": 668
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Does the Administrator need to change the status of an idea?",
+            "userStoryId": "us18",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "gateway"
+        },
+        {
+          "id": "step04",
+          "position": {
+            "x": 258,
+            "y": 488
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Administrator edits the idea",
+            "userStoryId": "us17",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step05",
+          "position": {
+            "x": 160,
+            "y": 668
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Does the Administrator need to change the status of an idea?",
+            "userStoryId": "us18",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "gateway"
+        },
+        {
+          "id": "step05",
+          "position": {
+            "x": 160,
+            "y": 668
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Does the Administrator need to change the status of an idea?",
+            "userStoryId": "us18",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "gateway"
+        },
+        {
+          "id": "step06",
+          "position": {
+            "x": 258,
+            "y": 858
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Administrator changes the status of the idea",
+            "userStoryId": "us18",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step05",
+          "position": {
+            "x": 160,
+            "y": 668
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Does the Administrator need to change the status of an idea?",
+            "userStoryId": "us18",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "gateway"
+        },
+        {
+          "id": "step07",
+          "position": {
+            "x": 112,
+            "y": 1038
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Idea oversight and administration completed",
+            "userStoryId": "us18",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "event"
+        },
+        {
+          "id": "step06",
+          "position": {
+            "x": 258,
+            "y": 858
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Administrator changes the status of the idea",
+            "userStoryId": "us18",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "activity"
+        },
+        {
+          "id": "step07",
+          "position": {
+            "x": 112,
+            "y": 1038
+          },
+          "data": {
+            "actor": "Administrator",
+            "actionName": "Idea oversight and administration completed",
+            "userStoryId": "us18",
+            "processName": "Idea Oversight and Administration"
+          },
+          "type": "event"
+        }
+      ],
+      "edges": [
+        {
+          "id": "step01-step02-0",
+          "sourceNodeId": "step01",
+          "targetNodeId": "step02",
+          "data": {
+            "label": "",
+            "processName": "Idea Oversight and Administration"
+          }
+        },
+        {
+          "id": "step02-step03-1",
+          "sourceNodeId": "step02",
+          "targetNodeId": "step03",
+          "data": {
+            "label": "",
+            "processName": "Idea Oversight and Administration"
+          }
+        },
+        {
+          "id": "step03-step04-2",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step04",
+          "data": {
+            "label": "Yes",
+            "processName": "Idea Oversight and Administration"
+          }
+        },
+        {
+          "id": "step03-step05-3",
+          "sourceNodeId": "step03",
+          "targetNodeId": "step05",
+          "data": {
+            "label": "No",
+            "processName": "Idea Oversight and Administration"
+          }
+        },
+        {
+          "id": "step04-step05-4",
+          "sourceNodeId": "step04",
+          "targetNodeId": "step05",
+          "data": {
+            "label": "",
+            "processName": "Idea Oversight and Administration"
+          }
+        },
+        {
+          "id": "step05-step06-5",
+          "sourceNodeId": "step05",
+          "targetNodeId": "step06",
+          "data": {
+            "label": "Yes",
+            "processName": "Idea Oversight and Administration"
+          }
+        },
+        {
+          "id": "step05-step07-6",
+          "sourceNodeId": "step05",
+          "targetNodeId": "step07",
+          "data": {
+            "label": "No",
+            "processName": "Idea Oversight and Administration"
+          }
+        },
+        {
+          "id": "step06-step07-7",
+          "sourceNodeId": "step06",
+          "targetNodeId": "step07",
+          "data": {
+            "label": "",
+            "processName": "Idea Oversight and Administration"
+          }
+        }
+      ]
+    }
+  ]
+}

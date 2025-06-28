@@ -1,0 +1,13 @@
+<msdyn_planartifact msdyn_planartifactid="c0b287fb-354e-f011-877a-00224804b47c">
+  <iscustomizable>1</iscustomizable>
+  <msdyn_artifactmetadata mimetype="application/octet-stream">Idea%20Management%20Model%20App</msdyn_artifactmetadata>
+  <msdyn_artifactmetadataschemaversion>1.0</msdyn_artifactmetadataschemaversion>
+  <msdyn_artifactstatus>419550001</msdyn_artifactstatus>
+  <msdyn_description>A model-driven app to manage all idea-related tables, providing structured workflows for employees and administrators.</msdyn_description>
+  <msdyn_name>Idea Management Model App</msdyn_name>
+  <msdyn_proposal mimetype="application/octet-stream">Idea%20Management%20Model%20App</msdyn_proposal>
+  <msdyn_proposalschemaversion>1.0</msdyn_proposalschemaversion>
+  <msdyn_type>PowerAppsModelApp</msdyn_type>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</msdyn_planartifact>

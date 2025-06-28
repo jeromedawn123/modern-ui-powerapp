@@ -1,0 +1,13 @@
+<msdyn_planartifact msdyn_planartifactid="7bb242cc-0d4b-f011-8779-6045bd0a2104">
+  <iscustomizable>1</iscustomizable>
+  <msdyn_artifactmetadata mimetype="application/octet-stream">undefined</msdyn_artifactmetadata>
+  <msdyn_artifactmetadataschemaversion>1.0</msdyn_artifactmetadataschemaversion>
+  <msdyn_artifactstatus>419550001</msdyn_artifactstatus>
+  <msdyn_description>An app for employees to submit, manage, and interact with ideas, and for administrators to oversee the idea management process.</msdyn_description>
+  <msdyn_name>Idea Management App</msdyn_name>
+  <msdyn_proposal mimetype="application/octet-stream">Idea%20Management%20App</msdyn_proposal>
+  <msdyn_proposalschemaversion>1.0</msdyn_proposalschemaversion>
+  <msdyn_type>PowerAppsCanvasApp</msdyn_type>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</msdyn_planartifact>
